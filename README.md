@@ -1,18 +1,11 @@
 # Building with AI around Epic
 
-UI HEALTH CARE · PHYSICIAN BUILDER CLASS · SEPTEMBER 16, 2026
+A procedure for deciding the content of an Epic build with usage data and AI-generated simulations.
 
-A reusable playbook for deciding the content of any Epic build: real usage data, a coverage dashboard, and a simulation of the finished screen you can decide on.
-
-## Sections
-
-- [The method](00-how-to.md)
-- [Your data](01-data.md)
-- [Prompt 1](02-dashboard-prompt.md)
-- [Prompt 2](03-simulator-prompt.md)
-- [Prompt 3](04-decisions-prompt.md)
-- [Prompt 4](05-meeting-notes-prompt.md)
-
-No patient, no provider, no PHI.
-
-Free to reuse.
+1. [Overview](00-overview.md)
+2. [Requirements](01-requirements.md)
+3. [1 Dashboard](02-dashboard.md)
+4. [2 Simulation](03-simulation.md)
+5. [3 Refinement](04-refinement.md)
+6. [4 Notes](05-notes.md)
+7. [Verification](06-verification.md)
