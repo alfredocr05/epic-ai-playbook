@@ -9,10 +9,10 @@
 Attach the version 1 file and the decisions, then paste the following.
 
 ```prompt
-Attached are the version 1 simulation [simulation_v1.html] and our decisions [decisions.xlsx or screenshots]. Produce simulation_v2.html with the decisions applied:
+Attached are the version 1 simulation [simulation_v1.html] and the decisions [decisions.xlsx or screenshots]. Produce simulation_v2.html with the decisions applied:
 
-1. Remove every line marked Drop. Move every line marked Move to its target group. Add every line we listed as added, with its source or "new".
-2. Tag every remaining line Include in the buckets we decided. Leave the buckets we did not decide exactly as in version 1 and label them "not yet decided".
+1. Remove every line marked Drop. Move every line marked Move to its target group. Add every line listed as added, with its source or "new".
+2. Tag every remaining line Include in the decided buckets. Leave the undecided buckets exactly as in version 1 and label them "not yet decided".
 3. Keep the group order and the line order as specified; this file is the build specification.
 4. Print a table: for each bucket, lines in v1 and v2, groups in v1 and v2.
 5. Write a one-page hand-off note for the build team: the final structure per bucket; each line's display name and matched existing record; every line that is new or traces only to the reference, listed separately for review.
@@ -26,9 +26,9 @@ A version 2 file that shows only the decided content, a delta table, and a hand-
 
 ## Check
 
-1. Count the lines in one decided bucket by hand; compare with the table.
-2. Confirm that no dropped line remains and that every added line appears with a source.
-3. Confirm the not-yet-decided buckets are unchanged.
+1. Count the lines in one decided bucket by hand and compare with the table.
+2. Confirm that every dropped line is absent and every added line appears with a source.
+3. Confirm that the undecided buckets match version 1.
 
 ## Refine
 
@@ -50,4 +50,4 @@ Export the final content as a CSV with one row per line and the same columns as 
 
 ## Hand-off
 
-Send the build team version 2 and the hand-off note. Keep version 1 for reference. Lines listed as new or reference-only require a review by the owners of the content before build.
+Send the build team version 2 and the hand-off note. Keep version 1 for reference. The content owners review the lines listed as new or reference-only before the build.

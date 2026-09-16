@@ -1,21 +1,21 @@
 # Verification and limitations
 
-## Before each artifact is shown to a group
+## Before showing an artifact to a group
 
-- [ ] Totals reported by the assistant match an independent count.
-- [ ] Coverage at N = 10 for one bucket recomputed by hand.
+- [ ] The totals reported by the assistant match an independent count.
+- [ ] Coverage at N = 10 for one bucket, recomputed by hand, matches the dashboard.
 - [ ] Every line in the simulation shows a count and a rank.
 - [ ] The file opens with the network disabled and shows the same content.
-- [ ] The file contains no identifiers (search it for MRN, CSN, and names).
-- [ ] The uncertain-match list has been reviewed.
+- [ ] A search of the file for MRN, CSN and names returns nothing.
+- [ ] The uncertain-match list has a reviewer's initials.
 
 ## Limitations
 
-- Usage data reflects current practice, including practice that the build may be intended to change. Low counts identify what the data cannot decide; they do not settle it.
-- Fuzzy matching between usage items and existing content is imperfect. Review the uncertain matches and spot-check the confident ones.
-- The simulation is a decision aid, not the build. Structure and wording still have to be reproduced in Epic by the build team; the hand-off note exists to make that reproduction unambiguous.
-- Assistants differ in how much output they return in one file. Very large builds may need the data split by population or provided as a separate file.
+- Usage data reflects current practice, including practice the build intends to change. Low counts identify what the data leaves open; the group settles those lines.
+- Fuzzy matching between usage items and existing content produces errors. Review the uncertain matches and spot-check the confident ones.
+- The simulation supports the decision; the build team reproduces structure and wording in Epic from the hand-off note.
+- Assistants differ in the amount of output they return in one file. Very large builds may need the data split by population or supplied as a separate file.
 
 ## Provenance
 
-The procedure was developed during one Quick List project at UI Health Care in 2026 (Alfredo Camargo Rodrigues, MD, Anesthesia). The prompts on this page are the ones used, with project-specific values replaced by bracketed fields. No data from that project is included here.
+The procedure originates from a Quick List project at UI Health Care in 2026 (Alfredo Camargo Rodrigues, MD, Anesthesia). The prompts above reproduce that project's prompts with project values replaced by bracketed fields.

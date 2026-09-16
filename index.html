@@ -7,120 +7,116 @@
 :root{color-scheme:dark;--bg:#0B0B0C;--gold:#FFCD00;--text:#F5F4F0;--muted:#BBBCBC;--line:#2A2A2E}
 *{box-sizing:border-box}
 html{scroll-behavior:auto}
-body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.65 Roboto,Arial,sans-serif;overflow-wrap:anywhere}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.55 Roboto,Arial,sans-serif;overflow-wrap:anywhere}
 .shell{width:calc(100% - 32px);max-width:780px;margin-inline:auto}
 a{color:var(--gold);text-decoration-thickness:1px;text-underline-offset:4px}
 a:hover{text-decoration:none}
 a:focus-visible,button:focus-visible{outline:2px solid var(--text);outline-offset:4px}
-.page-header{padding-block:36px 30px}
-.eyebrow{margin:0 0 18px;color:var(--gold);font:400 13px/1.6 'Roboto Mono',monospace;letter-spacing:.025em}
-h1{margin:0 0 18px;font-size:40px;line-height:1.15;font-weight:700;letter-spacing:-.025em}
-.description{margin:0;color:var(--muted);font-size:18px;line-height:1.6;max-width:72ch}
+.page-header{padding-block:18px 15px}
+.eyebrow{margin:0 0 4px;color:var(--gold);font:400 12px/1.55 'Roboto Mono',monospace;letter-spacing:.025em}
+h1{margin:0 0 4px;font-size:28px;line-height:1.15;font-weight:700;letter-spacing:-.025em}
+.description{margin:0;color:var(--muted);font-size:16px;line-height:1.55;max-width:none}
 .contents{border-block:1px solid var(--line);background:var(--bg)}
 .contents-inner{padding-block:22px}
-.contents h2{font-size:18px;line-height:1.4;font-weight:500;margin:0 0 10px}
+.contents h2{font:400 14px/1.55 'Roboto Mono',monospace;margin:0 0 10px}
 .contents ol{margin:0;padding-left:28px;list-style-type:decimal-leading-zero}
-.contents li{padding-left:5px;margin:0}
-.contents a{display:inline-flex;align-items:center;min-height:44px;font-size:16px}
+.contents li{padding-left:5px;margin:0;font:400 14px/1.55 'Roboto Mono',monospace}
+.contents a{display:inline-flex;align-items:center;min-height:44px;font:400 14px/1.55 'Roboto Mono',monospace}
 main{padding-bottom:8px}
 .content-section{padding-block:36px;border-bottom:1px solid var(--line);scroll-margin-top:24px}
-.content-section h2{margin:0 0 22px;font-size:28px;font-weight:600;line-height:1.25;letter-spacing:-.018em;max-width:72ch}
-.content-section h3{font-size:21px;line-height:1.4;font-weight:600;margin:32px 0 12px}
-.content-section h4{font-size:18px;line-height:1.5;font-weight:600;margin:24px 0 12px}
+.content-section h2{margin:0 0 22px;font-size:24px;font-weight:600;line-height:1.55;letter-spacing:-.018em;max-width:72ch}
+.content-section h3{font-size:20px;line-height:1.55;font-weight:600;margin:32px 0 12px}
+.content-section h4{font-size:17px;line-height:1.55;font-weight:600;margin:24px 0 12px}
 p{margin:0 0 18px;max-width:72ch}
 .content-section>:last-child{margin-bottom:0}
 strong{font-weight:600}
 ul,ol{margin:16px 0 24px;padding-left:26px;max-width:72ch}
 li{margin-bottom:10px;padding-left:3px}
 ol>li::marker{color:var(--gold);font-weight:500;font-variant-numeric:tabular-nums}
-code{font:400 .92em/1.6 'Roboto Mono',monospace;overflow-wrap:anywhere}
+code{font:400 .92em/1.55 'Roboto Mono',monospace;overflow-wrap:anywhere}
 .table-wrap{margin:24px 0;min-width:0}
 table{width:100%;border-collapse:collapse;table-layout:fixed}
 th,td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
-th{font:500 14px/1.5 'Roboto Mono',monospace;color:var(--muted);border-top:1px solid var(--line)}
-td{font-size:inherit;line-height:1.6}
-.procedure-facts{margin:0 0 28px;padding-block:15px;border-block:1px solid var(--line);font-size:inherit;line-height:1.6}
+th{font:500 16px/1.55 'Roboto Mono',monospace;color:var(--muted);border-top:1px solid var(--line)}
+td{font-size:16px;line-height:1.55}
+.procedure-facts{margin:0 0 28px;padding-block:15px;border-block:1px solid var(--line);font-size:inherit;line-height:1.55}
 .procedure-facts>div{display:grid;grid-template-columns:72px minmax(0,1fr);gap:14px;margin-block:5px}
 .procedure-facts dt{font-weight:600}
 .procedure-facts dd{margin:0}
 .prompt-block{margin:22px 0;border:1px solid var(--line);border-radius:4px;min-width:0}
 .prompt-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:1px solid var(--line);padding:8px 14px}
-.prompt-toolbar>span{font:400 14px/1.4 'Roboto Mono',monospace;color:var(--muted)}
+.prompt-toolbar>span{font:400 15px/1.55 'Roboto Mono',monospace;color:var(--muted)}
 button{min-height:44px;min-width:80px;padding:10px 16px;border:1px solid #525258;border-radius:3px;background:transparent;color:var(--text);font:500 15px/1.4 Roboto,Arial,sans-serif;cursor:pointer}
 button:hover{background:#1C1C1F;border-color:var(--muted)}
-.prompt-body,.plain-code{margin:0;padding:18px 14px;font:400 15px/1.65 'Roboto Mono',monospace;white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal;tab-size:2;color:var(--text)}
+.prompt-body,.plain-code{margin:0;padding:18px 14px;font:400 15px/1.55 'Roboto Mono',monospace;white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal;tab-size:2;color:var(--text)}
 .field{color:var(--gold)}
 .checklist{padding:0;list-style:none}
 .checklist li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;padding:0}
 .checkbox{font:400 22px/1.3 'Roboto Mono',monospace;color:var(--muted);user-select:none}
-footer{padding-block:30px 38px;color:var(--muted);font-size:inherit;line-height:1.6}
-footer p{margin:0 0 8px}
-footer p:last-child{margin:0}
-footer a{display:inline-flex;align-items:center;min-height:44px}
+footer{padding-block:16px 24px;color:#62666A;font-size:13px;line-height:1.55}
+footer p{margin:0;max-width:none}
+footer a{color:inherit}
 .copy-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 @media(max-width:699px){
  .table-wrap thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
  .table-wrap table,.table-wrap tbody,.table-wrap tr,.table-wrap td{display:block;width:100%}
  .table-wrap tr{padding:16px 0;border-top:1px solid var(--line)}
  .table-wrap tr:last-child{border-bottom:1px solid var(--line)}
- .table-wrap td{border:0;padding:0 0 10px;font-size:17px}
+ .table-wrap td{border:0;padding:0 0 10px;font-size:16px}
  .table-wrap td:last-child{padding-bottom:0}
- .table-wrap td::before{content:attr(data-label);display:block;font:500 13px/1.5 'Roboto Mono',monospace;color:var(--muted);margin-bottom:3px}
+ .table-wrap td::before{content:attr(data-label);display:block;font:500 16px/1.55 'Roboto Mono',monospace;color:var(--muted);margin-bottom:3px}
 }
 @media(min-width:700px){
- body{font-size:18px}
  .shell{width:calc(100% - 64px)}
- .page-header{padding-block:48px 36px}
+ .page-header{padding-block:24px 18px}
+ h1{font-size:32px}
  .content-section{padding-block:44px}
- .content-section h2{font-size:30px}
- .content-section h3{font-size:22px}
  #requirements th:first-child{width:22%}
  #requirements th:nth-child(2){width:14%}
  #requirements th:nth-child(3){width:64%}
  .prompt-toolbar{padding-inline:20px}
- .prompt-body,.plain-code{padding:22px 20px;font-size:16px}
- footer{padding-block:36px 48px}
+ .prompt-body,.plain-code{padding:22px 20px}
 }
 @media(min-width:1100px){
  .contents{position:sticky;top:0;z-index:2}
  .contents-inner{display:flex;align-items:center;gap:28px;max-width:1120px;padding-block:8px}
- .contents h2{font-size:15px;margin:0}
+ .contents h2{margin:0}
  .contents ol{display:flex;flex:1;justify-content:space-between;gap:24px;padding-left:22px;max-width:none}
- .contents li{padding-left:2px;font:400 13px/1.5 'Roboto Mono',monospace}
- .contents a{font:400 14px/1.5 Roboto,Arial,sans-serif;white-space:nowrap}
+ .contents li{padding-left:2px}
+ .contents a{white-space:nowrap}
  .content-section{scroll-margin-top:86px}
 }
 </style></head>
 <body><header class="page-header shell"><p class="eyebrow">PROCEDURE · UI HEALTH CARE · SEPTEMBER 2026</p><h1>Building with AI around Epic</h1><p class="description">A procedure for deciding the content of an Epic build with usage data and AI-generated simulations.</p></header>
 <nav class="contents" aria-label="Contents"><div class="contents-inner shell"><h2>Contents</h2><ol><li><a href="#overview">Overview</a></li><li><a href="#requirements">Requirements</a></li><li><a href="#dashboard">1 Dashboard</a></li><li><a href="#simulation">2 Simulation</a></li><li><a href="#refinement">3 Refinement</a></li><li><a href="#notes">4 Notes</a></li><li><a href="#verification">Verification</a></li></ol></div></nav>
 <main class="shell"><section class="content-section" id="overview" data-source-file="00-overview.md"><h2>Overview</h2>
-<p>This page describes a procedure for deciding the content of an Epic build (an order set, a Quick List, a SmartText library, a Synopsis layout, a SmartForm, an event list) using usage data and AI-generated HTML artifacts. Epic build itself is unchanged; the procedure produces the specification that the build team receives.</p>
-<p>The procedure has three AI steps and produces three artifacts:</p>
-<div class="table-wrap"><table><thead><tr><th scope="col">Step</th><th scope="col">Input</th><th scope="col">Artifact</th><th scope="col">Purpose</th></tr></thead><tbody><tr><td data-label="Step">1. Dashboard</td><td data-label="Input">usage table</td><td data-label="Artifact">one HTML file</td><td data-label="Purpose">shows what share of real use the top N items cover</td></tr><tr><td data-label="Step">2. Simulation</td><td data-label="Input">usage table, reference screenshots, reusable-content screenshots, constraints</td><td data-label="Artifact">one HTML file and one workbook</td><td data-label="Purpose">shows the finished screen with every candidate line carrying its count, rank and a proposed tag</td></tr><tr><td data-label="Step">3. Refinement</td><td data-label="Input">the simulation and the group&#x27;s decisions</td><td data-label="Artifact">a revised HTML file and a hand-off note</td><td data-label="Purpose">the build specification</td></tr></tbody></table></div>
-<p>Each step is a single prompt pasted into an AI assistant that can read attached files and write a self-contained HTML file. The prompts below were used as written; the bracketed fields are the only parts that change between projects.</p>
-<p>Expected effort: one working session per artifact. The content decision itself is made by the people who own the workflow, in a meeting, using artifact 2.</p></section>
+<p>This procedure decides the content of an Epic build (an order set, a Quick List, a SmartText library, a Synopsis layout, a SmartForm, an event list) from usage data and AI-generated HTML artifacts. The procedure produces the specification that the build team implements in Epic.</p>
+<p>Three AI steps produce three artifacts:</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Step</th><th scope="col">Input</th><th scope="col">Artifact</th><th scope="col">Purpose</th></tr></thead><tbody><tr><td data-label="Step">1. Dashboard</td><td data-label="Input">usage table</td><td data-label="Artifact">one HTML file</td><td data-label="Purpose">shows the share of real use covered by the top N items</td></tr><tr><td data-label="Step">2. Simulation</td><td data-label="Input">usage table, reference screenshots, reusable-content screenshots, constraints</td><td data-label="Artifact">one HTML file and one workbook</td><td data-label="Purpose">shows the finished screen with every candidate line carrying its count, rank and a proposed tag</td></tr><tr><td data-label="Step">3. Refinement</td><td data-label="Input">the simulation and the group&#x27;s decisions</td><td data-label="Artifact">a revised HTML file and a hand-off note</td><td data-label="Purpose">the build specification</td></tr></tbody></table></div>
+<p>Each step consists of one prompt to an AI assistant that reads attached files and writes a self-contained HTML file. The prompts below are complete; only the bracketed fields change between projects.</p>
+<p>Each artifact takes one working session. The people who own the workflow make the content decision in a meeting, using artifact 2.</p></section>
 <section class="content-section" id="requirements" data-source-file="01-requirements.md"><h2>Requirements</h2>
 <h3>Tools</h3>
-<p>An AI assistant that accepts file attachments and returns files. Claude (claude.ai or Claude Code) and OpenAI Codex were used; any assistant with equivalent capabilities is expected to work. A browser to open the generated HTML files. No Epic access is needed for steps 1 to 3.</p>
+<p>An AI assistant that accepts file attachments and returns files. Claude (claude.ai, Claude Code) and OpenAI Codex meet this requirement; assistants with equivalent capabilities should perform similarly. A browser opens the generated HTML files. Steps 1 to 3 require only the assistant and a browser.</p>
 <h3>Input 1 · Usage table</h3>
-<p>One row per real use of an item, as a CSV file. Obtain it from a reporting analyst or Reporting Workbench; the query itself is outside this procedure.</p>
+<p>One row per real use of an item, as a CSV file. Obtain the table from a reporting analyst or from Reporting Workbench.</p>
 <div class="table-wrap"><table><thead><tr><th scope="col">Column</th><th scope="col">Required</th><th scope="col">Content</th></tr></thead><tbody><tr><td data-label="Column"><code>Item</code></td><td data-label="Required">yes</td><td data-label="Content">the item as Epic names it: order display name, SmartText name, flowsheet row, event name, form field</td></tr><tr><td data-label="Column"><code>Date</code></td><td data-label="Required">yes</td><td data-label="Content">date of use</td></tr><tr><td data-label="Column">context columns</td><td data-label="Required">optional</td><td data-label="Content">dimensions to split by: phase of care, department, note type, population, encounter type</td></tr></tbody></table></div>
-<p>Aggregated counts (<code>Item</code>, <code>Count</code>, context columns) are acceptable in place of rows.</p>
-<p>What counts as a use depends on the build: an order placed (order sets, Quick Lists, preference lists); a phrase inserted (SmartTexts); a row viewed or documented (Synopsis, flowsheets); a field completed (SmartForms); an event documented (event lists).</p>
+<p>Aggregated counts (<code>Item</code>, <code>Count</code>, context columns) also work.</p>
+<p>The build determines what counts as a use: an order placed (order sets, Quick Lists, preference lists); a phrase inserted (SmartTexts); a row viewed or documented (Synopsis, flowsheets); a field completed (SmartForms); an event documented (event lists).</p>
 <p>Cover a period long enough to include rare but real items; three to six months is typical.</p>
 <h3>Input 2 · Reference screenshots</h3>
-<p>Screenshots of the screen the build should resemble: the Epic Foundation version, another department&#x27;s build, or a mock-up. Capture every section and, where applicable, every tab or radio option.</p>
+<p>Screenshots of the screen the build should resemble: the Epic Foundation version, another department&#x27;s build, or a mock-up. Capture every section and every tab or radio option.</p>
 <h3>Input 3 · Reusable-content screenshots</h3>
-<p>Screenshots of existing, reviewed content the build is allowed to reuse (current order sets, an approved SmartText library, the current flowsheet). Lines matched to this content carry its prior review.</p>
+<p>Screenshots of existing, reviewed content available for reuse (current order sets, an approved SmartText library, the current flowsheet). Lines matched to this content carry its prior review.</p>
 <h3>Input 4 · Constraints</h3>
-<p>One paragraph, written before prompting. Examples: reuse existing content wherever possible; keep the reference structure; three sections; adult and pediatric versions.</p>
+<p>Write one paragraph before prompting. Examples: reuse existing content wherever possible; keep the reference structure; three sections; adult and pediatric versions.</p>
 <h3>Data rules</h3>
-<ul><li>No patient, provider, or encounter identifiers in any file. Dates are sufficient.</li><li>Verify one total independently before prompting, and compare it with the totals the assistant reports.</li><li>Keep the generated files offline: they must not request fonts, scripts or data from the network.</li></ul></section>
+<ul><li>Exclude patient, provider and encounter identifiers; dates suffice.</li><li>Verify one total independently before prompting, then compare it with the totals the assistant reports.</li><li>Keep the generated files self-contained: fonts, scripts and data embedded in the file.</li></ul></section>
 <section class="content-section" id="dashboard" data-source-file="02-dashboard.md"><h2>Procedure 1 · Generate the coverage dashboard</h2>
 <dl class="procedure-facts"><div><dt>Input.</dt><dd>The usage table (Input 1).</dd></div><div><dt>Output.</dt><dd>One self-contained HTML file.</dd></div><div><dt>Time.</dt><dd>One session.</dd></div></dl>
 <h3>Prompt</h3>
 <p>Attach the usage table and paste the following. Replace the bracketed fields.</p>
-<div class="prompt-block"><div class="prompt-toolbar"><span>Prompt</span><button type="button" data-copy="dashboard-prompt-1">Copy</button></div><pre class="prompt-body" id="dashboard-prompt-1">Build a single-file, offline HTML dashboard for a working group deciding the content of an Epic build: <span class="field">[describe the build, e.g. &quot;a pre-operative order set&quot;, &quot;a SmartText library for discharge summaries&quot;, &quot;the Synopsis layout for the cardiac ICU&quot;]</span>. No network requests of any kind: no CDN, no external fonts, no analytics.
+<div class="prompt-block"><div class="prompt-toolbar"><span>Prompt</span><button type="button" data-copy="dashboard-prompt-1">Copy</button></div><pre class="prompt-body" id="dashboard-prompt-1">Build a single-file, offline HTML dashboard for a working group deciding the content of an Epic build: <span class="field">[describe the build, e.g. &quot;a pre-operative order set&quot;, &quot;a SmartText library for discharge summaries&quot;, &quot;the Synopsis layout for the cardiac ICU&quot;]</span>. Embed all fonts, scripts and data in the file; the page must open from disk with the network disabled.
 
 Input: the attached file <span class="field">[usage.csv]</span>, one row per real use, columns <span class="field">[Item, Date, context columns]</span>. It is de-identified. Treat Item as the candidate content line and each context column as a way to split the data.
 
@@ -134,36 +130,36 @@ Page:
 5. A cumulative-coverage curve (rank on x, cumulative share on y) with the cut line marked.
 6. A preview list of the top-N items as a plain checklist.
 
-Rules: compute everything at build time and embed the result as a JSON constant; the file must open from disk with no network. Use tabular numerals and one accent colour. Label every number. Return the HTML file and, separately, the total uses, distinct items, and the top-10 coverage for the default bucket so I can verify them.
+Rules: compute everything at build time and embed the result as a JSON constant. Use tabular numerals and one accent colour. Label every number. Return the HTML file and, separately, the total uses, distinct items, and the top-10 coverage for the default bucket, for verification.
 </pre></div>
 <h3>Expected output</h3>
-<p>An HTML file that opens from disk. Changing a segmented control changes the ranked list; moving the slider changes the coverage figure and the cut line; the curve flattens after the first ranks. The assistant&#x27;s separate summary reports the totals for the default bucket.</p>
+<p>An HTML file that opens from disk. Each segmented control changes the ranked list; the slider changes the coverage figure and the cut line; the curve flattens after the first ranks. The assistant&#x27;s separate summary reports the totals for the default bucket.</p>
 <h3>Check</h3>
-<ol><li>The total uses equal the row count of the file (or the sum of <code>Count</code>).</li><li>For one bucket, the coverage at N = 10 equals the sum of the top-10 counts divided by the bucket total, computed by hand.</li><li>The file works with the network disabled.</li><li>The file contains no identifiers.</li></ol>
-<p>The denominator is the most common error: assistants tend to divide by the sum of the top 30 rather than by the bucket total, which inflates coverage. Check 2 detects it.</p>
+<ol><li>The total uses equal the row count of the file (or the sum of <code>Count</code>).</li><li>For one bucket, the coverage at N = 10 equals the sum of the top-10 counts divided by the bucket total, computed by hand.</li><li>The file works with the network disabled.</li><li>The file contains only items, dates, counts and context values.</li></ol>
+<p>Assistants often divide by the sum of the top 30 instead of the bucket total, which inflates coverage; check 2 detects this.</p>
 <h3>Refine</h3>
-<p>Paste follow-up prompts in the same conversation. Examples:</p>
-<div class="prompt-block"><div class="prompt-toolbar"><span>Follow-up</span><button type="button" data-copy="dashboard-prompt-2">Copy</button></div><pre class="prompt-body" id="dashboard-prompt-2">The coverage denominator must be the bucket&#x27;s true total (all rows), not the sum of the top 30. Recompute and show the corrected default-bucket figures.
+<p>Paste follow-up prompts in the same conversation.</p>
+<div class="prompt-block"><div class="prompt-toolbar"><span>Follow-up</span><button type="button" data-copy="dashboard-prompt-2">Copy</button></div><pre class="prompt-body" id="dashboard-prompt-2">Use the bucket&#x27;s true total (all rows) as the coverage denominator instead of the sum of the top 30. Recompute and show the corrected default-bucket figures.
 </pre></div>
 <div class="prompt-block"><div class="prompt-toolbar"><span>Follow-up</span><button type="button" data-copy="dashboard-prompt-3">Copy</button></div><pre class="prompt-body" id="dashboard-prompt-3">Add <span class="field">[context column]</span> as a third segmented control and recompute the buckets.
 </pre></div>
 <div class="prompt-block"><div class="prompt-toolbar"><span>Follow-up</span><button type="button" data-copy="dashboard-prompt-4">Copy</button></div><pre class="prompt-body" id="dashboard-prompt-4">Change the slider range to 1 to <span class="field">[N]</span> and the default to <span class="field">[N]</span>.
 </pre></div>
-<div class="prompt-block"><div class="prompt-toolbar"><span>Follow-up</span><button type="button" data-copy="dashboard-prompt-5">Copy</button></div><pre class="prompt-body" id="dashboard-prompt-5">Some items are the same thing under two names: <span class="field">[list the pairs]</span>. Merge them before ranking and note the merges in a footnote.
+<div class="prompt-block"><div class="prompt-toolbar"><span>Follow-up</span><button type="button" data-copy="dashboard-prompt-5">Copy</button></div><pre class="prompt-body" id="dashboard-prompt-5">These items are the same thing under two names: <span class="field">[list the pairs]</span>. Merge them before ranking and note the merges in a footnote.
 </pre></div>
 <div class="prompt-block"><div class="prompt-toolbar"><span>Follow-up</span><button type="button" data-copy="dashboard-prompt-6">Copy</button></div><pre class="prompt-body" id="dashboard-prompt-6">Print a table of every bucket with its total, distinct items, and coverage at N = 5, 10 and 15.
 </pre></div>
 <h3>Common problems</h3>
-<div class="table-wrap"><table><thead><tr><th scope="col">Problem</th><th scope="col">Cause</th><th scope="col">Fix</th></tr></thead><tbody><tr><td data-label="Problem">Coverage too high</td><td data-label="Cause">denominator is the top-30 sum</td><td data-label="Fix">first refinement prompt</td></tr><tr><td data-label="Problem">Fonts differ when offline</td><td data-label="Cause">external font link</td><td data-label="Fix">ask for system fonts or embedded fonts</td></tr><tr><td data-label="Problem">Two rows for one item</td><td data-label="Cause">duplicate records in Epic</td><td data-label="Fix">merge in the data or with the fourth refinement prompt</td></tr><tr><td data-label="Problem">Bucket missing</td><td data-label="Cause">context value spelled differently in the file</td><td data-label="Fix">normalise the column before prompting</td></tr></tbody></table></div></section>
+<div class="table-wrap"><table><thead><tr><th scope="col">Problem</th><th scope="col">Cause</th><th scope="col">Fix</th></tr></thead><tbody><tr><td data-label="Problem">Coverage too high</td><td data-label="Cause">denominator is the top-30 sum</td><td data-label="Fix">first follow-up prompt</td></tr><tr><td data-label="Problem">Fonts change when offline</td><td data-label="Cause">external font link</td><td data-label="Fix">ask for system fonts or embedded fonts</td></tr><tr><td data-label="Problem">Two rows for one item</td><td data-label="Cause">duplicate records in Epic</td><td data-label="Fix">merge in the data or with the fourth follow-up prompt</td></tr><tr><td data-label="Problem">Bucket missing</td><td data-label="Cause">context value spelled differently in the file</td><td data-label="Fix">normalise the column before prompting</td></tr></tbody></table></div></section>
 <section class="content-section" id="simulation" data-source-file="03-simulation.md"><h2>Procedure 2 · Generate the simulation of the build</h2>
 <dl class="procedure-facts"><div><dt>Input.</dt><dd>The usage table (Input 1), reference screenshots (Input 2), reusable-content screenshots (Input 3), constraints (Input 4).</dd></div><div><dt>Output.</dt><dd>One self-contained HTML file and one workbook.</dd></div><div><dt>Time.</dt><dd>One session, plus a review of the uncertain matches.</dd></div></dl>
 <h3>Prompt</h3>
 <p>Attach the usage table and all screenshots, then paste the following. Replace the bracketed fields.</p>
-<div class="prompt-block"><div class="prompt-toolbar"><span>Prompt</span><button type="button" data-copy="simulation-prompt-1">Copy</button></div><pre class="prompt-body" id="simulation-prompt-1">Build a single-file, offline HTML simulation of an Epic build so that a working group can decide its content before it is built. The build is <span class="field">[describe the build]</span>. The simulation must reproduce the layout of the reference screen in the attached screenshots <span class="field">[reference_*.png]</span>: the same header, the same sections and groups, the same controls (tabs, radio options), in the same order.
+<div class="prompt-block"><div class="prompt-toolbar"><span>Prompt</span><button type="button" data-copy="simulation-prompt-1">Copy</button></div><pre class="prompt-body" id="simulation-prompt-1">Build a single-file, offline HTML simulation of an Epic build so that a working group can decide its content before the build. The build is <span class="field">[describe the build]</span>. Reproduce the layout of the reference screen in the attached screenshots <span class="field">[reference_*.png]</span>: the same header, the same sections and groups, the same controls (tabs, radio options), in the same order.
 
 Inputs:
 - <span class="field">[usage.csv]</span>: one row per real use, columns <span class="field">[Item, Date, context columns]</span>, de-identified.
-- <span class="field">[reuse_*.png]</span>: screenshots of existing reviewed content that may be reused: <span class="field">[name them]</span>.
+- <span class="field">[reuse_*.png]</span>: screenshots of existing reviewed content available for reuse: <span class="field">[name them]</span>.
 - Constraints: <span class="field">[paste the constraints paragraph]</span>.
 
 Steps:
@@ -174,12 +170,12 @@ Steps:
 5. Build the simulation: the reference layout; one control per context bucket; every line with its checkbox, display name, and chips for tag, count and rank; a Collapse/Expand toggle that hides Consider and Review lines; a search box; a summary panel with visible line counts per section.
 6. Produce the same content as a workbook: one sheet per bucket, the columns from step 3, plus an empty Decision column (Keep / Move / Drop).
 
-Rules: no network requests; embed the data as a JSON constant; keep the visual style close to the reference. Return the HTML file, the workbook, the thresholds used, and the list of uncertain matches.
+Rules: embed all fonts, scripts and data in the file; keep the visual style close to the reference. Return the HTML file, the workbook, the thresholds used, and the list of uncertain matches.
 </pre></div>
 <h3>Expected output</h3>
 <p>An HTML file that resembles the reference screen, with every candidate line showing its count and rank, tags in three colours, and a toggle that removes the Consider and Review lines. A workbook with one sheet per bucket. A list of uncertain matches.</p>
 <h3>Check</h3>
-<ol><li>Pick five lines at random; confirm their counts against the dashboard from Procedure 1.</li><li>Read the uncertain matches; correct wrong matches with a refinement prompt.</li><li>Confirm every group in the reference screen appears in the simulation.</li><li>Confirm that Collapse hides exactly the Consider and Review lines.</li></ol>
+<ol><li>Pick five lines at random and compare their counts with the dashboard from Procedure 1.</li><li>Read the uncertain matches and correct wrong matches with a follow-up prompt.</li><li>Confirm that every group in the reference screen appears in the simulation.</li><li>Confirm that Collapse hides exactly the Consider and Review lines.</li></ol>
 <h3>Refine</h3>
 <div class="prompt-block"><div class="prompt-toolbar"><span>Follow-up</span><button type="button" data-copy="simulation-prompt-2">Copy</button></div><pre class="prompt-body" id="simulation-prompt-2">Move <span class="field">[line]</span> from <span class="field">[group]</span> to <span class="field">[group]</span>. Rename the group <span class="field">[old]</span> to <span class="field">[new]</span>. Keep everything else unchanged.
 </pre></div>
@@ -189,22 +185,22 @@ Rules: no network requests; embed the data as a JSON constant; keep the visual s
 </pre></div>
 <div class="prompt-block"><div class="prompt-toolbar"><span>Follow-up</span><button type="button" data-copy="simulation-prompt-5">Copy</button></div><pre class="prompt-body" id="simulation-prompt-5">These items are duplicates of one another: <span class="field">[pairs]</span>. Keep <span class="field">[record]</span>, drop the other, and tag the kept line Include.
 </pre></div>
-<div class="prompt-block"><div class="prompt-toolbar"><span>Follow-up</span><button type="button" data-copy="simulation-prompt-6">Copy</button></div><pre class="prompt-body" id="simulation-prompt-6">Add a <span class="field">[population or phase]</span> version as another tab using the same structure; rank from the same file filtered by <span class="field">[context value]</span>.
+<div class="prompt-block"><div class="prompt-toolbar"><span>Follow-up</span><button type="button" data-copy="simulation-prompt-6">Copy</button></div><pre class="prompt-body" id="simulation-prompt-6">Add a <span class="field">[population or phase]</span> version as another tab with the same structure; rank from the same file filtered by <span class="field">[context value]</span>.
 </pre></div>
-<div class="prompt-block"><div class="prompt-toolbar"><span>Follow-up</span><button type="button" data-copy="simulation-prompt-7">Copy</button></div><pre class="prompt-body" id="simulation-prompt-7">The reference screen uses <span class="field">[term]</span> for the section we call <span class="field">[term]</span>. Use the reference wording everywhere.
+<div class="prompt-block"><div class="prompt-toolbar"><span>Follow-up</span><button type="button" data-copy="simulation-prompt-7">Copy</button></div><pre class="prompt-body" id="simulation-prompt-7">The reference screen uses <span class="field">[term]</span> for the section named <span class="field">[term]</span> in the simulation. Use the reference wording everywhere.
 </pre></div>
 <h3>Use in the decision meeting</h3>
-<p>Open the simulation on a shared screen. Go through each section line by line; for each line record Keep, Move or Drop in the workbook or on a screenshot. Use Collapse to show the resulting screen. Lines tagged Consider are the ones the data does not decide; expect most discussion there.</p>
+<p>Open the simulation on a shared screen. Go through each section line by line and record Keep, Move or Drop for each line in the workbook or on a screenshot. Use Collapse to show the resulting screen. Lines tagged Consider are the ones the data leaves open; expect most discussion there.</p>
 <h3>Common problems</h3>
-<div class="table-wrap"><table><thead><tr><th scope="col">Problem</th><th scope="col">Cause</th><th scope="col">Fix</th></tr></thead><tbody><tr><td data-label="Problem">Layout does not resemble the reference</td><td data-label="Cause">screenshots incomplete</td><td data-label="Fix">capture every section and tab; re-prompt with the full set</td></tr><tr><td data-label="Problem">Item matched to the wrong record</td><td data-label="Cause">fuzzy match on similar names</td><td data-label="Fix">second refinement prompt</td></tr><tr><td data-label="Problem">High-count item tagged Consider</td><td data-label="Cause">not found in reusable content</td><td data-label="Fix">confirm whether it exists; if yes, third refinement prompt with the record</td></tr><tr><td data-label="Problem">Simulation slow or blank</td><td data-label="Cause">file too large for the assistant&#x27;s output limit</td><td data-label="Fix">ask for the data as a separate JSON file loaded at build time, or split by population</td></tr></tbody></table></div></section>
+<div class="table-wrap"><table><thead><tr><th scope="col">Problem</th><th scope="col">Cause</th><th scope="col">Fix</th></tr></thead><tbody><tr><td data-label="Problem">Layout differs from the reference</td><td data-label="Cause">screenshots incomplete</td><td data-label="Fix">capture every section and tab; re-prompt with the full set</td></tr><tr><td data-label="Problem">Item matched to the wrong record</td><td data-label="Cause">fuzzy match on similar names</td><td data-label="Fix">second follow-up prompt</td></tr><tr><td data-label="Problem">High-count item tagged Consider</td><td data-label="Cause">absent from the reuse screenshots</td><td data-label="Fix">confirm whether it exists; if yes, third follow-up prompt with the record</td></tr><tr><td data-label="Problem">Simulation slow or blank</td><td data-label="Cause">file exceeds the assistant&#x27;s output limit</td><td data-label="Fix">ask for the data as a separate JSON file loaded at build time, or split by population</td></tr></tbody></table></div></section>
 <section class="content-section" id="refinement" data-source-file="04-refinement.md"><h2>Procedure 3 · Refine the simulation into the specification</h2>
 <dl class="procedure-facts"><div><dt>Input.</dt><dd>The simulation from Procedure 2 and the decisions from the meeting (the workbook with the Decision column filled in, a list, or annotated screenshots).</dd></div><div><dt>Output.</dt><dd>A revised HTML file (version 2) and a one-page hand-off note.</dd></div><div><dt>Time.</dt><dd>One session.</dd></div></dl>
 <h3>Prompt</h3>
 <p>Attach the version 1 file and the decisions, then paste the following.</p>
-<div class="prompt-block"><div class="prompt-toolbar"><span>Prompt</span><button type="button" data-copy="refinement-prompt-1">Copy</button></div><pre class="prompt-body" id="refinement-prompt-1">Attached are the version 1 simulation <span class="field">[simulation_v1.html]</span> and our decisions <span class="field">[decisions.xlsx or screenshots]</span>. Produce simulation_v2.html with the decisions applied:
+<div class="prompt-block"><div class="prompt-toolbar"><span>Prompt</span><button type="button" data-copy="refinement-prompt-1">Copy</button></div><pre class="prompt-body" id="refinement-prompt-1">Attached are the version 1 simulation <span class="field">[simulation_v1.html]</span> and the decisions <span class="field">[decisions.xlsx or screenshots]</span>. Produce simulation_v2.html with the decisions applied:
 
-1. Remove every line marked Drop. Move every line marked Move to its target group. Add every line we listed as added, with its source or &quot;new&quot;.
-2. Tag every remaining line Include in the buckets we decided. Leave the buckets we did not decide exactly as in version 1 and label them &quot;not yet decided&quot;.
+1. Remove every line marked Drop. Move every line marked Move to its target group. Add every line listed as added, with its source or &quot;new&quot;.
+2. Tag every remaining line Include in the decided buckets. Leave the undecided buckets exactly as in version 1 and label them &quot;not yet decided&quot;.
 3. Keep the group order and the line order as specified; this file is the build specification.
 4. Print a table: for each bucket, lines in v1 and v2, groups in v1 and v2.
 5. Write a one-page hand-off note for the build team: the final structure per bucket; each line&#x27;s display name and matched existing record; every line that is new or traces only to the reference, listed separately for review.
@@ -214,7 +210,7 @@ Return the HTML file, the table and the note.
 <h3>Expected output</h3>
 <p>A version 2 file that shows only the decided content, a delta table, and a hand-off note listing every line with its existing record.</p>
 <h3>Check</h3>
-<ol><li>Count the lines in one decided bucket by hand; compare with the table.</li><li>Confirm that no dropped line remains and that every added line appears with a source.</li><li>Confirm the not-yet-decided buckets are unchanged.</li></ol>
+<ol><li>Count the lines in one decided bucket by hand and compare with the table.</li><li>Confirm that every dropped line is absent and every added line appears with a source.</li><li>Confirm that the undecided buckets match version 1.</li></ol>
 <h3>Refine</h3>
 <div class="prompt-block"><div class="prompt-toolbar"><span>Follow-up</span><button type="button" data-copy="refinement-prompt-2">Copy</button></div><pre class="prompt-body" id="refinement-prompt-2">Reorder the lines in <span class="field">[group]</span> to: <span class="field">[list]</span>. Keep everything else unchanged.
 </pre></div>
@@ -225,22 +221,22 @@ Return the HTML file, the table and the note.
 <div class="prompt-block"><div class="prompt-toolbar"><span>Follow-up</span><button type="button" data-copy="refinement-prompt-5">Copy</button></div><pre class="prompt-body" id="refinement-prompt-5">Export the final content as a CSV with one row per line and the same columns as the hand-off table.
 </pre></div>
 <h3>Hand-off</h3>
-<p>Send the build team version 2 and the hand-off note. Keep version 1 for reference. Lines listed as new or reference-only require a review by the owners of the content before build.</p></section>
+<p>Send the build team version 2 and the hand-off note. Keep version 1 for reference. The content owners review the lines listed as new or reference-only before the build.</p></section>
 <section class="content-section" id="notes" data-source-file="05-notes.md"><h2>Procedure 4 · Draft the meeting notes</h2>
-<dl class="procedure-facts"><div><dt>Input.</dt><dd>The transcript export from the meeting tool, with any names you do not want recorded removed.</dd></div><div><dt>Output.</dt><dd>A one-page note.</dd></div></dl>
+<dl class="procedure-facts"><div><dt>Input.</dt><dd>The transcript export from the meeting tool, with names removed as required.</dd></div><div><dt>Output.</dt><dd>A one-page note.</dd></div></dl>
 <h3>Prompt</h3>
-<div class="prompt-block"><div class="prompt-toolbar"><span>Prompt</span><button type="button" data-copy="notes-prompt-1">Copy</button></div><pre class="prompt-body" id="notes-prompt-1">Convert the attached meeting transcript <span class="field">[transcript.docx]</span> into a one-page working-meeting note for an Epic build project. Structure: a header table (date, duration, attendees as given, focus); Background (2 to 3 sentences); Key decisions (bullets, one decision each); Open questions (bullets); Next actions (bullets, each starting with a name); Artifacts reviewed (files, screenshots, versions). Past tense, neutral tone. Do not add decisions that are not in the transcript; put undecided topics under Open questions. Under 400 words. No patient information.
+<div class="prompt-block"><div class="prompt-toolbar"><span>Prompt</span><button type="button" data-copy="notes-prompt-1">Copy</button></div><pre class="prompt-body" id="notes-prompt-1">Convert the attached meeting transcript <span class="field">[transcript.docx]</span> into a one-page working-meeting note for an Epic build project. Structure: a header table (date, duration, attendees as given, focus); Background (2 to 3 sentences); Key decisions (bullets, one decision each); Open questions (bullets); Next actions (bullets, each starting with a name); Artifacts reviewed (files, screenshots, versions). Past tense, neutral tone. Include only decisions present in the transcript; place undecided topics under Open questions. Under 400 words. Exclude patient information.
 </pre></div>
 <h3>Check</h3>
-<p>Read the Key decisions against your memory of the meeting before circulating. Edit by hand; the draft is a starting point.</p></section>
+<p>Compare the Key decisions with the meeting before circulating the note. Edit the draft by hand.</p></section>
 <section class="content-section" id="verification" data-source-file="06-verification.md"><h2>Verification and limitations</h2>
-<h3>Before each artifact is shown to a group</h3>
-<ul class="checklist"><li><span class="checkbox" aria-hidden="true">☐</span><span>Totals reported by the assistant match an independent count.</span></li><li><span class="checkbox" aria-hidden="true">☐</span><span>Coverage at N = 10 for one bucket recomputed by hand.</span></li><li><span class="checkbox" aria-hidden="true">☐</span><span>Every line in the simulation shows a count and a rank.</span></li><li><span class="checkbox" aria-hidden="true">☐</span><span>The file opens with the network disabled and shows the same content.</span></li><li><span class="checkbox" aria-hidden="true">☐</span><span>The file contains no identifiers (search it for MRN, CSN, and names).</span></li><li><span class="checkbox" aria-hidden="true">☐</span><span>The uncertain-match list has been reviewed.</span></li></ul>
+<h3>Before showing an artifact to a group</h3>
+<ul class="checklist"><li><span class="checkbox" aria-hidden="true">☐</span><span>The totals reported by the assistant match an independent count.</span></li><li><span class="checkbox" aria-hidden="true">☐</span><span>Coverage at N = 10 for one bucket, recomputed by hand, matches the dashboard.</span></li><li><span class="checkbox" aria-hidden="true">☐</span><span>Every line in the simulation shows a count and a rank.</span></li><li><span class="checkbox" aria-hidden="true">☐</span><span>The file opens with the network disabled and shows the same content.</span></li><li><span class="checkbox" aria-hidden="true">☐</span><span>A search of the file for MRN, CSN and names returns nothing.</span></li><li><span class="checkbox" aria-hidden="true">☐</span><span>The uncertain-match list has a reviewer&#x27;s initials.</span></li></ul>
 <h3>Limitations</h3>
-<ul><li>Usage data reflects current practice, including practice that the build may be intended to change. Low counts identify what the data cannot decide; they do not settle it.</li><li>Fuzzy matching between usage items and existing content is imperfect. Review the uncertain matches and spot-check the confident ones.</li><li>The simulation is a decision aid, not the build. Structure and wording still have to be reproduced in Epic by the build team; the hand-off note exists to make that reproduction unambiguous.</li><li>Assistants differ in how much output they return in one file. Very large builds may need the data split by population or provided as a separate file.</li></ul>
+<ul><li>Usage data reflects current practice, including practice the build intends to change. Low counts identify what the data leaves open; the group settles those lines.</li><li>Fuzzy matching between usage items and existing content produces errors. Review the uncertain matches and spot-check the confident ones.</li><li>The simulation supports the decision; the build team reproduces structure and wording in Epic from the hand-off note.</li><li>Assistants differ in the amount of output they return in one file. Very large builds may need the data split by population or supplied as a separate file.</li></ul>
 <h3>Provenance</h3>
-<p>The procedure was developed during one Quick List project at UI Health Care in 2026 (Alfredo Camargo Rodrigues, MD, Anesthesia). The prompts on this page are the ones used, with project-specific values replaced by bracketed fields. No data from that project is included here.</p></section></main>
-<footer class="shell"><p>Alfredo Camargo Rodrigues, MD · Anesthesia · UI Health Care</p><p>No project data is included on this page.</p><p><a href="https://github.com/alfredocr05/epic-ai-playbook">https://github.com/alfredocr05/epic-ai-playbook</a></p></footer>
+<p>The procedure originates from a Quick List project at UI Health Care in 2026 (Alfredo Camargo Rodrigues, MD, Anesthesia). The prompts above reproduce that project&#x27;s prompts with project values replaced by bracketed fields.</p></section></main>
+<footer class="shell"><p>Alfredo Camargo Rodrigues, MD · Anesthesia · UI Health Care · <a href="https://github.com/alfredocr05/epic-ai-playbook">github.com/alfredocr05/epic-ai-playbook</a></p></footer>
 <div id="copy-status" class="copy-status" role="status" aria-live="polite"></div>
 <script>
 (() => {

@@ -9,7 +9,7 @@
 Attach the usage table and paste the following. Replace the bracketed fields.
 
 ```prompt
-Build a single-file, offline HTML dashboard for a working group deciding the content of an Epic build: [describe the build, e.g. "a pre-operative order set", "a SmartText library for discharge summaries", "the Synopsis layout for the cardiac ICU"]. No network requests of any kind: no CDN, no external fonts, no analytics.
+Build a single-file, offline HTML dashboard for a working group deciding the content of an Epic build: [describe the build, e.g. "a pre-operative order set", "a SmartText library for discharge summaries", "the Synopsis layout for the cardiac ICU"]. Embed all fonts, scripts and data in the file; the page must open from disk with the network disabled.
 
 Input: the attached file [usage.csv], one row per real use, columns [Item, Date, context columns]. It is de-identified. Treat Item as the candidate content line and each context column as a way to split the data.
 
@@ -23,28 +23,28 @@ Page:
 5. A cumulative-coverage curve (rank on x, cumulative share on y) with the cut line marked.
 6. A preview list of the top-N items as a plain checklist.
 
-Rules: compute everything at build time and embed the result as a JSON constant; the file must open from disk with no network. Use tabular numerals and one accent colour. Label every number. Return the HTML file and, separately, the total uses, distinct items, and the top-10 coverage for the default bucket so I can verify them.
+Rules: compute everything at build time and embed the result as a JSON constant. Use tabular numerals and one accent colour. Label every number. Return the HTML file and, separately, the total uses, distinct items, and the top-10 coverage for the default bucket, for verification.
 ```
 
 ## Expected output
 
-An HTML file that opens from disk. Changing a segmented control changes the ranked list; moving the slider changes the coverage figure and the cut line; the curve flattens after the first ranks. The assistant's separate summary reports the totals for the default bucket.
+An HTML file that opens from disk. Each segmented control changes the ranked list; the slider changes the coverage figure and the cut line; the curve flattens after the first ranks. The assistant's separate summary reports the totals for the default bucket.
 
 ## Check
 
 1. The total uses equal the row count of the file (or the sum of `Count`).
 2. For one bucket, the coverage at N = 10 equals the sum of the top-10 counts divided by the bucket total, computed by hand.
 3. The file works with the network disabled.
-4. The file contains no identifiers.
+4. The file contains only items, dates, counts and context values.
 
-The denominator is the most common error: assistants tend to divide by the sum of the top 30 rather than by the bucket total, which inflates coverage. Check 2 detects it.
+Assistants often divide by the sum of the top 30 instead of the bucket total, which inflates coverage; check 2 detects this.
 
 ## Refine
 
-Paste follow-up prompts in the same conversation. Examples:
+Paste follow-up prompts in the same conversation.
 
 ```prompt
-The coverage denominator must be the bucket's true total (all rows), not the sum of the top 30. Recompute and show the corrected default-bucket figures.
+Use the bucket's true total (all rows) as the coverage denominator instead of the sum of the top 30. Recompute and show the corrected default-bucket figures.
 ```
 
 ```prompt
@@ -56,7 +56,7 @@ Change the slider range to 1 to [N] and the default to [N].
 ```
 
 ```prompt
-Some items are the same thing under two names: [list the pairs]. Merge them before ranking and note the merges in a footnote.
+These items are the same thing under two names: [list the pairs]. Merge them before ranking and note the merges in a footnote.
 ```
 
 ```prompt
@@ -67,7 +67,7 @@ Print a table of every bucket with its total, distinct items, and coverage at N 
 
 | Problem | Cause | Fix |
 |---|---|---|
-| Coverage too high | denominator is the top-30 sum | first refinement prompt |
-| Fonts differ when offline | external font link | ask for system fonts or embedded fonts |
-| Two rows for one item | duplicate records in Epic | merge in the data or with the fourth refinement prompt |
+| Coverage too high | denominator is the top-30 sum | first follow-up prompt |
+| Fonts change when offline | external font link | ask for system fonts or embedded fonts |
+| Two rows for one item | duplicate records in Epic | merge in the data or with the fourth follow-up prompt |
 | Bucket missing | context value spelled differently in the file | normalise the column before prompting |
