@@ -2,18 +2,17 @@
 
 UI HEALTH CARE · PHYSICIAN BUILDER CLASS · SEPTEMBER 16, 2026
 
-The playbook from the anesthesia Quick List project: an extract spec, four prompts, and the rules we followed.
+A reusable playbook for deciding the content of any Epic build: real usage data, a coverage dashboard, and a simulation of the finished screen you can decide on.
 
 ## Sections
 
-- [How to use](00-how-to.md)
-- [Extract](01-extract.md)
+- [The method](00-how-to.md)
+- [Your data](01-data.md)
 - [Prompt 1](02-dashboard-prompt.md)
 - [Prompt 2](03-simulator-prompt.md)
 - [Prompt 3](04-decisions-prompt.md)
 - [Prompt 4](05-meeting-notes-prompt.md)
-- [Sample data](sample_extract.csv)
 
-No patient, no provider, no PHI: the extract carries only the order, its count and its phase.
+No patient, no provider, no PHI.
 
 Free to reuse.

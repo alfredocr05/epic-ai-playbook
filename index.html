@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark"><meta name="theme-color" content="#0B0B0C">
 <title>Building with AI around Epic · The playbook</title>
-<meta name="description" content="The playbook from the anesthesia Quick List project: an extract spec, four prompts, and the rules we followed.">
+<meta name="description" content="A reusable playbook for deciding the content of any Epic build: real usage data, a coverage dashboard, and a simulation of the finished screen you can decide on.">
 <link rel="icon" href="data:,">
 <style>
 :root{color-scheme:dark;--bg:#0B0B0C;--gold:#FFCD00;--text:#F5F4F0;--muted:#BBBCBC;--line:#303033;--nav-height:116px}
@@ -46,13 +46,12 @@ tr:last-child td{border-bottom:none}
 .copy-card{border:1px solid #3e3a24;border-radius:10px;background:#121214;margin:28px 0;min-width:0}
 .copy-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid #3e3a24;background:#1c1b15;border-radius:9px 9px 0 0}
 .copy-toolbar>span{font:500 13px/1.5 'Roboto Mono',monospace;color:var(--muted);letter-spacing:.4px}
-button,.download{font:700 16px/1.2 Roboto,Arial,sans-serif;min-height:44px;padding:12px 17px;border:1px solid var(--gold);border-radius:5px;background:var(--gold);color:var(--bg);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
-button:hover,.download:hover{background:#ffe269;border-color:#ffe269;color:var(--bg)}
+button{font:700 16px/1.2 Roboto,Arial,sans-serif;min-height:44px;padding:12px 17px;border:1px solid var(--gold);border-radius:5px;background:var(--gold);color:var(--bg);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+button:hover{background:#ffe269;border-color:#ffe269;color:var(--bg)}
 .copy-button{min-width:122px}
 .copy-body{font:400 17px/1.65 'Roboto Mono',monospace;white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal;margin:0;padding:20px 16px;color:#dededd;tab-size:2}
 .usage-note{border-left:2px solid var(--gold);padding:3px 0 3px 18px;color:var(--muted);margin-top:25px}
 .usage-note p{max-width:82ch}.usage-note strong{color:var(--muted)}
-.download{gap:10px;margin:0 0 8px;max-width:100%;text-align:center;overflow-wrap:anywhere}
 footer{padding-block:34px 46px;color:var(--muted);font-size:17px}
 footer p{margin:0 0 14px;max-width:82ch}
 footer p:first-child{color:var(--text);font-weight:500}
@@ -84,109 +83,94 @@ footer a{display:inline-flex;min-height:44px;align-items:center}
  .content-section p,li{font-size:19px;line-height:1.65}
  .copy-toolbar{padding:12px 24px}
  .copy-body{padding:28px 30px;font-size:17px;line-height:1.75}
- th:first-child{width:28%}th:nth-child(2){width:12%}th:nth-child(3){width:60%}
+ .columns-3 th:first-child{width:28%}.columns-3 th:nth-child(2){width:12%}.columns-3 th:nth-child(3){width:60%}
+ .columns-2 th:first-child{width:44%}.columns-2 th:nth-child(2){width:56%}
  .usage-note{padding-left:24px}
  footer{padding-block:45px 64px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style></head>
-<body><a class="skip-link" href="#how-to">Skip to the playbook</a>
-<header class="hero shell"><p class="eyebrow">UI HEALTH CARE · PHYSICIAN BUILDER CLASS · SEPTEMBER 16, 2026</p><h1>Building with AI<br> <span>around Epic</span></h1><p class="hero-intro">The playbook from the anesthesia Quick List project: an extract spec, four prompts, and the rules we followed.</p></header>
-<div class="nav-wrap"><nav class="section-nav shell" aria-label="Playbook sections"><a href="#how-to">How to use</a><a href="#extract">Extract</a><a href="#prompt-1">Prompt 1</a><a href="#prompt-2">Prompt 2</a><a href="#prompt-3">Prompt 3</a><a href="#prompt-4">Prompt 4</a><a href="#sample-data">Sample data</a></nav></div>
-<main class="shell"><section class="content-section" id="how-to" data-source-file="00-how-to.md"><h2>How to use this playbook</h2>
-<p>You need three things: a de-identified extract, screenshots of the screens you want to resemble and reuse, and an AI coding assistant that can read files and write HTML (we used Claude and Codex).</p>
-<ol><li><strong>Run the extract</strong> (Step 1). SQL only. Check the totals yourself before anything else.</li><li><strong>Paste Prompt 1</strong> with the CSV. Open the dashboard. Drag the slider. Now the group is looking at coverage, not opinions.</li><li><strong>Paste Prompt 2</strong> with the CSV, the Foundation screenshots and your order-set screenshots. Open the simulator. Meet, decide line by line.</li><li><strong>Paste Prompt 3</strong> with the decisions. Send v2 to the build team as the spec.</li><li><strong>Paste Prompt 4</strong> after each meeting.</li></ol>
+<body><a class="skip-link" href="#method">Skip to the playbook</a>
+<header class="hero shell"><p class="eyebrow">UI HEALTH CARE · PHYSICIAN BUILDER CLASS · SEPTEMBER 16, 2026</p><h1>Building with AI<br> <span>around Epic</span></h1><p class="hero-intro">A reusable playbook for deciding the content of any Epic build: real usage data, a coverage dashboard, and a simulation of the finished screen you can decide on.</p></header>
+<div class="nav-wrap"><nav class="section-nav shell" aria-label="Playbook sections"><a href="#method">The method</a><a href="#data">Your data</a><a href="#prompt-1">Prompt 1</a><a href="#prompt-2">Prompt 2</a><a href="#prompt-3">Prompt 3</a><a href="#prompt-4">Prompt 4</a></nav></div>
+<main class="shell"><section class="content-section" id="method" data-source-file="00-how-to.md"><h2>The method</h2>
+<p>Most Epic builds do not stall on the build. They stall on agreeing what goes in. This playbook replaces that argument with two things everyone can look at: <strong>real usage numbers</strong> and <strong>a simulation of the finished screen</strong>.</p>
+<p>It works for any content decision: an order set, a Quick List, a SmartText library, a Synopsis layout, a SmartForm, an event list, a preference list. The pattern is always the same.</p>
+<ol><li><strong>Get usage data.</strong> One row per thing that actually happened: an order placed, a phrase inserted, a row viewed, an event documented. No patient, no provider, no PHI. Ask your reporting team or use Reporting Workbench; you do not need to write the query yourself.</li><li><strong>Paste Prompt 1</strong> with that file. You get a dashboard that answers one question: <em>how much of real use do the top N items cover?</em> Drag the slider. Opinion becomes coverage.</li><li><strong>Paste Prompt 2</strong> with the same file, screenshots of the reference screen you want to resemble (Epic Foundation, a sister department, a mock-up), and screenshots of content you are allowed to reuse. You get a simulation of the finished build, with every candidate line carrying its count and rank and a suggested tag: Include, Consider, Review. Meet. Decide line by line, watching the screen get cleaner.</li><li><strong>Paste Prompt 3</strong> with the decisions. You get version 2, which is the spec you hand to the build team.</li><li><strong>Paste Prompt 4</strong> after each meeting. You get the notes.</li></ol>
 <h3>Ground rules</h3>
-<ul><li><strong>No PHI, ever.</strong> The extract carries no patient, provider or encounter identifiers. The screenshots are of build screens, not charts. If in doubt, leave it out.</li><li><strong>AI helps you see. You decide.</strong> Every clinical decision in our project was made by clinicians in a meeting, with a number next to each line.</li><li><strong>Reuse what is validated.</strong> Lines that already live in a reviewed order set carry their pharmacy review with them.</li><li><strong>Check the numbers.</strong> Ask the assistant to print the totals it computed and compare them with your query. We caught a denominator bug this way.</li></ul>
-<h3>Expect</h3>
-<p>The dashboard and the first simulator took an afternoon each. The decision meeting took 36 minutes. The Quick List reached the build environment two months later, with no line-by-line debate on the way.</p></section>
-<section class="content-section" id="extract" data-source-file="01-extract.md"><h2>Step 1 · The extract (SQL, no AI yet)</h2>
-<p>Everything downstream runs on one flat table. Pull it from Clarity, Caboodle or Reporting Workbench. Keep it <strong>de-identified</strong>: no patient, no provider, no encounter identifiers. Just the order, its phase, and a date.</p>
-<h3>Columns (8)</h3>
-<div class="schema-wrap"><table><thead><tr><th scope="col">Column</th><th scope="col">Type</th><th scope="col">What it holds</th></tr></thead><tbody><tr><td data-label="Column"><code>AnesthesiaStartDate</code></td><td data-label="Type">date</td><td data-label="What it holds">Start date of the anesthesia record (used for the time window)</td></tr><tr><td data-label="Column"><code>OrderedDate</code></td><td data-label="Type">date</td><td data-label="What it holds">Date the order was placed</td></tr><tr><td data-label="Column"><code>PatientAgeGroup</code></td><td data-label="Type">text</td><td data-label="What it holds"><code>Adult</code> or <code>Pediatric</code></td></tr><tr><td data-label="Column"><code>FirstAnesthesiaType</code></td><td data-label="Type">text</td><td data-label="What it holds">e.g. <code>GENERAL</code>, <code>MAC</code>, <code>REGIONAL</code>, <code>GEN W REG</code></td></tr><tr><td data-label="Column"><code>OrderCategory</code></td><td data-label="Type">text</td><td data-label="What it holds"><code>Medication</code> or <code>Procedure</code> (labs, imaging, nursing orders count as Procedure)</td></tr><tr><td data-label="Column"><code>PhaseOfCare</code></td><td data-label="Type">text</td><td data-label="What it holds">For medications: the documented phase (<code>OR - Preoperative</code>, <code>OR - Intraoperative</code>, <code>OR - Postop PACU/Recovery Only</code>)</td></tr><tr><td data-label="Column"><code>ProcedureTimingBucket</code></td><td data-label="Type">text</td><td data-label="What it holds">For procedures: when the order was placed relative to the case (<code>Preprocedure</code>, <code>Intraprocedure</code>, <code>Postprocedure</code>)</td></tr><tr><td data-label="Column"><code>OrderName</code></td><td data-label="Type">text</td><td data-label="What it holds">The order&#x27;s display name exactly as Epic stores it</td></tr></tbody></table></div>
-<p>One row per order placed. Our window was Jan 1 – Jun 23, 2026: 187,411 rows, 730 distinct order names.</p>
-<h3>Query skeleton (adapt the table names to your build)</h3>
-<div class="copy-card"><div class="copy-toolbar"><span>SQL</span><button type="button" class="copy-button" data-copy="extract-sql" aria-label="Copy SQL">Copy SQL</button></div><pre id="extract-sql" class="copy-body" tabindex="0">SELECT
-  anes.AnesthesiaStartDate,
-  ord.OrderedDate,
-  CASE WHEN pat.AgeAtCase &gt;= 18 THEN &#x27;Adult&#x27; ELSE &#x27;Pediatric&#x27; END AS PatientAgeGroup,
-  anes.FirstAnesthesiaType,
-  CASE WHEN ord.OrderType = &#x27;Medication&#x27; THEN &#x27;Medication&#x27; ELSE &#x27;Procedure&#x27; END AS OrderCategory,
-  med.PhaseOfCare,               -- medications: documented phase
-  proc.ProcedureTimingBucket,    -- procedures: pre / intra / post relative to the case
-  ord.OrderName
-FROM AnesthesiaCases anes
-JOIN Orders ord ON ord.CaseKey = anes.CaseKey
-LEFT JOIN MedicationOrderPhase med ON med.OrderKey = ord.OrderKey
-LEFT JOIN ProcedureOrderTiming proc ON proc.OrderKey = ord.OrderKey
-JOIN PatientAgeAtCase pat ON pat.CaseKey = anes.CaseKey
-WHERE anes.AnesthesiaStartDate BETWEEN &#x27;2026-01-01&#x27; AND &#x27;2026-06-23&#x27;
-  AND ord.OrderingDepartmentGroup = &#x27;Anesthesia&#x27;;   -- the filter that defines &quot;what anesthesia orders&quot;</pre></div>
-<p>Export as CSV with a header row. That file is the only input the next two prompts need.</p>
-<h3>Grouping (still SQL)</h3>
-<p>We also grouped the ranked orders by phase in SQL: for each <code>PatientAgeGroup × OrderCategory × Phase</code> bucket, rank order names by count. Thirty per bucket is enough for the dashboard. If you skip this, the dashboard prompt will do the ranking for you.</p></section>
+<ul><li><strong>No PHI, ever.</strong> Usage data carries the item, when it was used, and how often. Nothing about who.</li><li><strong>AI helps you see. You decide.</strong> Every content decision is made by the people who own the workflow, in a meeting, with a number next to each line.</li><li><strong>Reuse what is already validated.</strong> Content that lives in a reviewed build carries its review with it.</li><li><strong>Check the numbers.</strong> Ask the assistant to print the totals it computed and compare them with a count you trust.</li></ul>
+<h3>What to expect</h3>
+<p>A dashboard in an afternoon. A simulation in an afternoon. A decision meeting measured in minutes, not months. A build team that receives a finished decision, not a discussion.</p></section>
+<section class="content-section" id="data" data-source-file="01-data.md"><h2>Your data</h2>
+<p>One flat file, one row per real use. That is all the prompts need. Ask your analyst or reporting team for it; describe it in these words.</p>
+<h3>The shape</h3>
+<div class="schema-wrap columns-3"><table><thead><tr><th scope="col">Column</th><th scope="col">Required</th><th scope="col">What it holds</th></tr></thead><tbody><tr><td data-label="Column"><code>Item</code></td><td data-label="Required">yes</td><td data-label="What it holds">The thing that was used, named exactly as Epic names it (order display name, SmartText name, flowsheet row, event name, form field)</td></tr><tr><td data-label="Column"><code>Date</code></td><td data-label="Required">yes</td><td data-label="What it holds">When it was used</td></tr><tr><td data-label="Column"><code>Context 1</code>, <code>Context 2</code> …</td><td data-label="Required">optional</td><td data-label="What it holds">Whatever you will want to split by: phase of care, department, note type, patient population, encounter type, user role</td></tr></tbody></table></div>
+<p>If you can only get counts instead of rows, that works too: <code>Item</code>, <code>Count</code>, and the context columns.</p>
+<h3>What &quot;use&quot; means, by build</h3>
+<div class="schema-wrap columns-2"><table><thead><tr><th scope="col">Build</th><th scope="col">One row per</th></tr></thead><tbody><tr><td data-label="Build">Order set, Quick List, preference list</td><td data-label="One row per">an order placed</td></tr><tr><td data-label="Build">SmartText, SmartPhrase library</td><td data-label="One row per">a phrase inserted into a note</td></tr><tr><td data-label="Build">Synopsis, flowsheet layout</td><td data-label="One row per">a row viewed or documented</td></tr><tr><td data-label="Build">SmartForm</td><td data-label="One row per">a field completed</td></tr><tr><td data-label="Build">Anesthesia or procedure events</td><td data-label="One row per">an event documented</td></tr><tr><td data-label="Build">Navigator, activity tab</td><td data-label="One row per">an activity opened</td></tr></tbody></table></div>
+<h3>Rules</h3>
+<ul><li><strong>No identifiers.</strong> No MRN, CSN, name, user ID. Dates are enough.</li><li><strong>Long enough to be honest.</strong> Three to six months usually covers seasonal cases and rare-but-real items.</li><li><strong>Count something you trust.</strong> Before you paste, check one total by hand, and ask the assistant to print its totals so you can compare.</li></ul></section>
 <section class="content-section" id="prompt-1" data-source-file="02-dashboard-prompt.md"><h2>Prompt 1 · The coverage dashboard</h2>
-<p>Paste this into Claude (claude.ai, Claude Code or the desktop app) and attach your extract CSV. Replace the bracketed parts.</p>
-<div class="copy-card"><div class="copy-toolbar"><span>Prompt 1</span><button type="button" class="copy-button" data-copy="prompt-1-body" aria-label="Copy Prompt 1">Copy prompt</button></div><pre id="prompt-1-body" class="copy-body" tabindex="0">You are building a single-file, offline HTML dashboard for a hospital order-set working group. The audience is clinicians deciding which orders belong on an Epic Quick List. Nothing may leave the file: no CDN, no fonts from the network, no analytics.
+<p>Paste this into your AI assistant (Claude, Codex or similar) and attach your usage file. Replace the bracketed parts.</p>
+<div class="copy-card"><div class="copy-toolbar"><span>Prompt 1</span><button type="button" class="copy-button" data-copy="prompt-1-body" aria-label="Copy Prompt 1">Copy prompt</button></div><pre id="prompt-1-body" class="copy-body" tabindex="0">You are building a single-file, offline HTML dashboard for a working group that must decide the content of an Epic build: `[what you are building, e.g. &quot;a pre-op order set&quot;, &quot;a SmartText library for discharge summaries&quot;, &quot;the Synopsis layout for the cardiac ICU&quot;]`. The audience is clinicians and analysts. Nothing may leave the file: no CDN, no network fonts, no analytics.
 
-**Input.** The attached CSV `[your_extract.csv]` has one row per order placed by anesthesia, with columns: `AnesthesiaStartDate, OrderedDate, PatientAgeGroup, FirstAnesthesiaType, OrderCategory, PhaseOfCare, ProcedureTimingBucket, OrderName`. It is de-identified. Medications carry their phase in `PhaseOfCare`; procedures carry it in `ProcedureTimingBucket`. Map both to three phases: Preprocedure, Intraprocedure, Postprocedure.
+**Input.** The attached file `[usage.csv]` has one row per real use, with the columns `[Item, Date, Context columns…]`. It is de-identified. Treat `Item` as the candidate content line and the context columns as ways to split the data.
 
-**Buckets.** `PatientAgeGroup` (Adult, Pediatric) × `OrderCategory` (Medication, Procedure) × phase (3) = 12 buckets. For each bucket compute: the true total number of orders (all rows in the bucket, not just the top N), the number of distinct order names, and the top 30 order names ranked by count.
+**Buckets.** Let the user split the data by each context column (for example `[phase of care × population]`). For every bucket compute: the true total number of uses (all rows in the bucket, not only the top N), the number of distinct items, and the top 30 items ranked by count.
 
 **Page.**
-1. A header with the total number of orders analysed, the number of distinct order names, and the date window, each labelled in plain words.
-2. Three segmented controls: population, order type, phase of care. Default: Adult · Medication · Intraprocedure.
-3. A ranked list of the bucket&#x27;s top 30 orders as horizontal bars with the count at the right.
-4. A slider &quot;Quick list shows top N&quot; (1–30, default 10). Above the list show, in large type, **N and the percentage of the bucket&#x27;s total order volume covered by the top N**. Coverage = sum of the top-N counts ÷ the bucket&#x27;s true total. Draw a &quot;cut line&quot; in the list under rank N and dim the rows below it.
-5. A small cumulative-coverage curve (rank 1–30 on x, cumulative share on y) with the cut line marked.
-6. A &quot;Resulting quick-list preview&quot;: the top-N names as checkboxes, styled like a plain Epic order list.
+1. A header stating the total number of uses, the number of distinct items, and the date range, each labelled in plain words.
+2. One segmented control per context column. Default to the most common bucket.
+3. A ranked list of the bucket&#x27;s top 30 items as horizontal bars with the count at the right.
+4. A slider &quot;Keep the top N&quot; (1–30, default 10). Above the list show, in large type, **N and the percentage of the bucket&#x27;s real use covered by the top N**. Coverage = sum of the top-N counts ÷ the bucket&#x27;s true total. Draw a cut line under rank N and dim the rows below it.
+5. A small cumulative-coverage curve (rank on x, cumulative share on y) with the cut line marked.
+6. A &quot;What the build would contain&quot; preview: the top-N items as a plain checklist.
 
-**Rules.** Compute everything from the CSV at build time and embed the result as a JSON constant in the file; the HTML must open from disk with no network. Use tabular numerals. Keep the palette calm (one accent colour). Every number on screen must carry a label a viewer can understand without narration. Give me the finished HTML file and a five-line summary of the numbers for the default bucket so I can check them against my own query.</pre></div>
-<div class="usage-note"><p><strong>How we used it.</strong> In the room, we dragged the slider from 5 to 10 to 15 and read the coverage aloud. Ten orders covered 76 % of adult intra-op medication volume and 87 % of PACU medication volume. That ended the opinion phase.</p></div></section>
-<section class="content-section" id="prompt-2" data-source-file="03-simulator-prompt.md"><h2>Prompt 2 · The Quick List simulator (Foundation-shaped)</h2>
-<p>Paste this into Claude and attach three things: your extract CSV, screenshots of the Epic Foundation Quick List you want to resemble, and screenshots of the order sets you are allowed to reuse. Replace the bracketed parts.</p>
-<div class="copy-card"><div class="copy-toolbar"><span>Prompt 2</span><button type="button" class="copy-button" data-copy="prompt-2-body" aria-label="Copy Prompt 2">Copy prompt</button></div><pre id="prompt-2-body" class="copy-body" tabindex="0">You are building a single-file, offline HTML simulator of an Epic **Quick List** so a clinical working group can decide its content before anything is built in Epic. The result must look and feel like the Epic Foundation Quick List in the attached screenshots `[foundation_*.png]`: an Orders header, a &quot;Quick List&quot; tab, radio buttons for the phase (Preprocedure · Intraprocedure · Postprocedure/PACU), and two columns of groups, each group a titled box with checkbox lines.
+**Rules.** Compute everything from the file at build time and embed the result as a JSON constant; the page must open from disk with no network. Use tabular numerals. One accent colour. Every number on screen must carry a label a viewer can understand without narration. Give me the finished HTML file and a five-line summary of the numbers for the default bucket so I can check them against a count I trust.</pre></div>
+<div class="usage-note"><p><strong>How we used it.</strong> In the room, we dragged the slider from 5 to 10 to 15 and read the coverage aloud. Ten items covered three quarters of real use. That ended the opinion phase.</p></div></section>
+<section class="content-section" id="prompt-2" data-source-file="03-simulator-prompt.md"><h2>Prompt 2 · The simulation of the build</h2>
+<p>Paste this into your AI assistant and attach three things: your usage file, screenshots of the reference screen you want to resemble, and screenshots of the content you are allowed to reuse. Replace the bracketed parts.</p>
+<div class="copy-card"><div class="copy-toolbar"><span>Prompt 2</span><button type="button" class="copy-button" data-copy="prompt-2-body" aria-label="Copy Prompt 2">Copy prompt</button></div><pre id="prompt-2-body" class="copy-body" tabindex="0">You are building a single-file, offline HTML **simulation** of an Epic build so a working group can decide its content before anything is built in Epic. The build is `[what you are building]`. The result must look and behave like the reference screen in the attached screenshots `[reference_*.png]` (Epic Foundation, a sister department&#x27;s build, or a mock-up): the same layout, the same kind of groups, the same controls.
 
 **Inputs.**
-- `[your_extract.csv]`: one row per order placed, columns `AnesthesiaStartDate, OrderedDate, PatientAgeGroup, FirstAnesthesiaType, OrderCategory, PhaseOfCare, ProcedureTimingBucket, OrderName` (de-identified).
-- `[orderset_*.png]`: screenshots of our existing order sets. These define what we are allowed to reuse.
-- Constraints: `[write yours as one paragraph — ours were: reuse only lines already in our order sets because they are pharmacy-validated and interaction-checked; stay close to Foundation&#x27;s structure; three tabs: pre-op, intra-op, PACU]`.
+- `[usage.csv]`: one row per real use, columns `[Item, Date, Context columns…]`, de-identified.
+- `[reuse_*.png]`: screenshots of existing content we may reuse `[e.g. our current order sets, the approved SmartText library, the current flowsheet]`. Anything already there carries its review with it.
+- Constraints: `[write yours as one paragraph, e.g. &quot;reuse existing content wherever possible; stay close to the reference structure; three sections: before, during, after&quot;]`.
 
 **What to do.**
-1. Read the order-set screenshots and extract every line item as text (drug, dose form, route). Read the Foundation screenshots and extract the group and subgroup structure per phase.
-2. From the CSV, rank order names by count within each population × phase. Match each ranked order name to the order-set line items (fuzzy match on drug and form; list uncertain matches separately). Record, for every candidate line: population, phase, group, subgroup, display name, the matched Epic record name(s), the source (which order set it came from; &quot;Foundation&quot; if only there; &quot;not in reviewed order sets&quot; if nowhere), the count, and the rank within its phase bucket.
-3. Propose a tag per line: **Include** (high volume and present in a reviewed order set), **Consider** (low volume), **Review** (phase ambiguity or duplicate records for the same drug). State the thresholds you used.
-4. Build the simulator: Adult/Pediatric tabs; Preop/Intraop/PACU tabs; the Foundation-shaped two-column layout; each line shows its checkbox, display name, and small chips for tag, count and rank; a Collapse/Expand toggle that hides Consider and Review lines so the group can see the &quot;clean&quot; screen versus the full draft; a search box; a summary panel with visible line counts.
-5. Also produce the same content as a workbook (one sheet per population × phase, columns as in step 2, plus an empty Decision column: Keep / Move / Drop).
+1. Read the reference screenshots and extract the structure: sections, groups, subgroups, controls, and the order they appear in. Read the reuse screenshots and extract every line item as text.
+2. From the usage file, rank items by count within each context bucket. Match each ranked item to the reusable line items (fuzzy match; list uncertain matches separately). Record, for every candidate line: bucket, group, subgroup, display name, the matched existing record, the source (which existing build it came from; &quot;reference only&quot; if only in the reference; &quot;new&quot; if nowhere), the count, and the rank within its bucket.
+3. Propose a tag per line: **Include** (high use and already in reusable content), **Consider** (low use), **Review** (ambiguous placement, duplicate records for the same thing, or new content that needs a review). State the thresholds you used.
+4. Build the simulation: the reference layout; a control for each context bucket; every line shows its checkbox or control, its display name, and small chips for tag, count and rank; a **Collapse / Expand** toggle that hides Consider and Review lines so the group can see the clean screen versus the full draft; a search box; a summary panel with visible line counts.
+5. Also produce the same content as a workbook: one sheet per bucket, the columns from step 2, plus an empty Decision column (Keep / Move / Drop).
 
-**Rules.** No network dependencies. Embed the data as a JSON constant. Keep the tool&#x27;s own look close to Epic (it is evidence, not a brand exercise). Give me the HTML file, the workbook, and a short list of the matches you were unsure about.</pre></div>
-<div class="usage-note"><p><strong>How we used it.</strong> Meeting 2 was two people going line by line in this simulator. Every line had a number on it, so every decision had a weight. Collapsing the Consider lines showed us the clean screen. When we finished, we regenerated the file with the decisions applied and sent that version to the pharmacy build team as the spec.</p></div></section>
+**Rules.** No network dependencies. Embed the data as a JSON constant. Keep the look close to the reference; it is evidence, not a brand exercise. Give me the HTML file, the workbook, and a short list of the matches you were unsure about.</pre></div>
+<div class="usage-note"><p><strong>How we used it.</strong> The decision meeting was two people going line by line in this simulation. Every line had a number on it, so every decision had a weight. Collapsing the Consider lines showed the clean screen. When we finished, we regenerated the file with the decisions applied and sent that version to the build team as the spec.</p></div></section>
 <section class="content-section" id="prompt-3" data-source-file="04-decisions-prompt.md"><h2>Prompt 3 · Apply the decisions (v1 → v2)</h2>
-<p>After the decision meeting, paste this with the v1 simulator file and your decision list (or screenshots of the marked-up screen).</p>
-<div class="copy-card"><div class="copy-toolbar"><span>Prompt 3</span><button type="button" class="copy-button" data-copy="prompt-3-body" aria-label="Copy Prompt 3">Copy prompt</button></div><pre id="prompt-3-body" class="copy-body" tabindex="0">Here is the v1 Quick List simulator `[simulator_v1.html]` and our decisions `[decisions.md or screenshots]`. Produce `simulator_v2.html` with the decisions applied:
+<p>After the decision meeting, paste this with the v1 simulation file and your decisions (a list, or screenshots of the marked-up screen).</p>
+<div class="copy-card"><div class="copy-toolbar"><span>Prompt 3</span><button type="button" class="copy-button" data-copy="prompt-3-body" aria-label="Copy Prompt 3">Copy prompt</button></div><pre id="prompt-3-body" class="copy-body" tabindex="0">Here is the v1 simulation `[simulation_v1.html]` and our decisions `[decisions.md or screenshots]`. Produce `simulation_v2.html` with the decisions applied:
 
-1. Remove every line we dropped; move lines we moved; add lines we added (mark added lines with their source order set, or &quot;addendum&quot; if none).
-2. Re-tag every remaining line **Include** and clear the Consider and Review tags for the populations we decided.
-3. Keep the untouched populations exactly as in v1 and label them &quot;not yet decided&quot;.
+1. Remove every line we dropped; move lines we moved; add lines we added (mark added lines with their source, or &quot;new&quot; if none).
+2. Re-tag every remaining line **Include** and clear the Consider and Review tags for the buckets we decided.
+3. Keep the buckets we did not decide exactly as in v1 and label them &quot;not yet decided&quot;.
 4. Keep group order and line order exactly as we specified; this file is the build spec.
-5. Print a delta table: for each population × phase, lines in v1 → lines in v2, and groups in v1 → groups in v2.
-6. Give me a one-page hand-off note for the build team: the final group structure per phase, each line&#x27;s display name and matched Epic record, and any line that traces only to Foundation or to no reviewed order set (those need a pharmacy look).</pre></div>
-<div class="usage-note"><p><strong>How we used it.</strong> Adult lists went from 135 lines to 89, and from 22 groups to 14. The v2 file plus the hand-off note is what the pharmacy build team received.</p></div></section>
+5. Print a delta table: for each bucket, lines in v1 → lines in v2, and groups in v1 → groups in v2.
+6. Give me a one-page hand-off note for the build team: the final structure per bucket, each line&#x27;s display name and matched existing record, and any line that is new or traces only to the reference (those need a review before build).</pre></div>
+<div class="usage-note"><p><strong>How we used it.</strong> The lists went from 135 lines to 89 and from 22 groups to 14. The v2 file plus the hand-off note is what the build team received. Two months later the build was in the test environment with no line-by-line debate on the way.</p></div></section>
 <section class="content-section" id="prompt-4" data-source-file="05-meeting-notes-prompt.md"><h2>Prompt 4 · Meeting notes from a transcript</h2>
-<p>Paste this with the Teams transcript export. Strip names you do not want in the record before pasting.</p>
+<p>Paste this with the transcript export from your meeting tool. Strip names you do not want in the record before pasting.</p>
 <div class="copy-card"><div class="copy-toolbar"><span>Prompt 4</span><button type="button" class="copy-button" data-copy="prompt-4-body" aria-label="Copy Prompt 4">Copy prompt</button></div><pre id="prompt-4-body" class="copy-body" tabindex="0">Turn the attached meeting transcript `[transcript.docx]` into a one-page working-meeting note for an Epic build project. Structure:
 
 - Header table: date, duration, attendees (as given), meeting focus.
 - **Background** (2–3 sentences).
-- **Key decisions** (bullets, each one a decision, not a discussion).
+- **Key decisions** (bullets; each one a decision, not a discussion).
 - **Open questions** (bullets).
 - **Next actions** (bullets, each starting with a name).
 - **Artifacts reviewed** (files, screenshots, versions).
 
-Rules: write in the past tense, neutral tone; do not invent decisions that are not in the transcript; if something was discussed without a decision, put it under open questions; keep it under 400 words; no patient information of any kind.</pre></div>
-<div class="usage-note"><p><strong>How we used it.</strong> Both meeting notes in this project were drafted this way and then edited by hand. The July 15 note is what the &quot;Meeting 2&quot; slide is built from.</p></div></section>
-<section class="content-section" id="sample-data"><h2>Sample data</h2><a class="download" href="sample_extract.csv" download>Download sample_extract.csv <span aria-hidden="true">↓</span></a><div class="schema-wrap"><table><thead><tr><th scope="col">Column</th><th scope="col">Type</th><th scope="col">What it holds</th></tr></thead><tbody><tr><td data-label="Column"><code>AnesthesiaStartDate</code></td><td data-label="Type">date</td><td data-label="What it holds">Start date of the anesthesia record (used for the time window)</td></tr><tr><td data-label="Column"><code>OrderedDate</code></td><td data-label="Type">date</td><td data-label="What it holds">Date the order was placed</td></tr><tr><td data-label="Column"><code>PatientAgeGroup</code></td><td data-label="Type">text</td><td data-label="What it holds"><code>Adult</code> or <code>Pediatric</code></td></tr><tr><td data-label="Column"><code>FirstAnesthesiaType</code></td><td data-label="Type">text</td><td data-label="What it holds">e.g. <code>GENERAL</code>, <code>MAC</code>, <code>REGIONAL</code>, <code>GEN W REG</code></td></tr><tr><td data-label="Column"><code>OrderCategory</code></td><td data-label="Type">text</td><td data-label="What it holds"><code>Medication</code> or <code>Procedure</code> (labs, imaging, nursing orders count as Procedure)</td></tr><tr><td data-label="Column"><code>PhaseOfCare</code></td><td data-label="Type">text</td><td data-label="What it holds">For medications: the documented phase (<code>OR - Preoperative</code>, <code>OR - Intraoperative</code>, <code>OR - Postop PACU/Recovery Only</code>)</td></tr><tr><td data-label="Column"><code>ProcedureTimingBucket</code></td><td data-label="Type">text</td><td data-label="What it holds">For procedures: when the order was placed relative to the case (<code>Preprocedure</code>, <code>Intraprocedure</code>, <code>Postprocedure</code>)</td></tr><tr><td data-label="Column"><code>OrderName</code></td><td data-label="Type">text</td><td data-label="What it holds">The order&#x27;s display name exactly as Epic stores it</td></tr></tbody></table></div></section></main>
-<footer class="shell"><p>Alfredo Camargo Rodrigues, MD · Anesthesia · UI Health Care</p><p>No patient, no provider, no PHI: the extract carries only the order, its count and its phase.</p><p>Free to reuse.</p><a href="https://github.com/alfredocr05/epic-ai-playbook">GitHub repository ↗</a></footer>
+Rules: past tense, neutral tone; do not invent decisions that are not in the transcript; if something was discussed without a decision, put it under open questions; under 400 words; no patient information of any kind.</pre></div>
+<div class="usage-note"><p><strong>How we used it.</strong> Every meeting note in our project was drafted this way and then edited by hand.</p></div></section></main>
+<footer class="shell"><p>Alfredo Camargo Rodrigues, MD · Anesthesia · UI Health Care</p><p>Born in an anesthesia Quick List project. Built for any content decision in Epic.</p><p>No patient, no provider, no PHI.</p><p>Free to reuse.</p><a href="https://github.com/alfredocr05/epic-ai-playbook">GitHub repository ↗</a></footer>
 <div id="copy-status" class="sr-only" role="status" aria-live="polite"></div>
 <script>
 (() => {
